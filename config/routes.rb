@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :recipes, only:[:index]
   resources :ingredients, only:[:index]
   resources :pots, only:[:index]
+  mount ActionCable.server => '/cable'
 
   # get 'ingredients/index'
   # get 'recipe_ingredients/index'
