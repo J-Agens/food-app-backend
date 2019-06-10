@@ -22,6 +22,7 @@ class CookSessionsController < ApplicationController
     @cook_session.update(completed: true)
     order = @cook_session.order
     order.update(served: true)
+    ActionCable.server.broadcast("tables_channel", OrderSerializer.new(order))
     @cook_session.destroy
   end
 
