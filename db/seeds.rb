@@ -70,7 +70,7 @@ recipe_ings.each do |item|
 
 end
 
-10.times do
+20.times do
   table = Recipe.all.sample
   Order.create(item_name: recipes.sample, served: false, price: rand(5..20), user_id: rand(User.first.id..User.last.id), table_id: table.id)
 end
