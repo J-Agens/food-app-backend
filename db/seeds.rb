@@ -28,11 +28,11 @@ ingredients = [
 
 recipe_ings = [
   {
-    name: "cheesburger",
+    name: "cheeseburger",
     ingredients: ["cheese", "beef", "bread"]
   },
   {
-    name: "grilled cheeese",
+    name: "grilled cheese",
     ingredients: ["cheese", "bread", "butter"]
   },
   {
@@ -53,9 +53,9 @@ recipe_ings = [
   Table.create
 end
 
-Party.create(name: Faker::Name.first_name, table_id: 1)
-Party.create(name: Faker::Name.first_name, table_id: 2)
-Party.create(name: Faker::Name.first_name, table_id: 3)
+User.create(username: Faker::Name.first_name) # need to add passwords later
+User.create(username: Faker::Name.first_name)
+User.create(username: Faker::Name.first_name)
 
 
 Pot.create
@@ -71,6 +71,6 @@ recipe_ings.each do |item|
 end
 
 10.times do
-  recipe = Recipe.all.sample
-  Order.create(item_name: recipe.name, served: false, price: rand(5..20), party_id: rand(Party.first.id..Party.last.id), recipe_id: recipe.id)
+  table = Recipe.all.sample
+  Order.create(item_name: recipes.sample, served: false, price: rand(5..20), user_id: rand(User.first.id..User.last.id), table_id: table.id)
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :tables, only:[:index, :show]
-  resources :parties, only:[:index, :create, :update, :destroy]
+  resources :users, only:[:index, :create, :update, :destroy]
   resources :orders, only:[:create, :update, :destroy]
   resources :cook_sessions, only:[:index, :show, :create, :update, :destroy]
   resources :recipes, only:[:index]

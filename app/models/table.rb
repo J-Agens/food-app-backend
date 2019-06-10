@@ -1,3 +1,4 @@
 class Table < ApplicationRecord
-  has_one :party
+  has_many :orders
+  has_many :users, through: :orders
 end

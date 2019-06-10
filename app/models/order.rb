@@ -1,5 +1,9 @@
 class Order < ApplicationRecord
-  belongs_to :party
-  belongs_to :recipe
+  belongs_to :user
+  belongs_to :table
   has_one :cook_session
+
+  def customer
+    self.user.username
+  end
 end

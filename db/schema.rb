@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_143944) do
+ActiveRecord::Schema.define(version: 2019_06_10_133040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_06_06_143944) do
     t.integer "pot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "completed"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -31,16 +32,9 @@ ActiveRecord::Schema.define(version: 2019_06_06_143944) do
 
   create_table "orders", force: :cascade do |t|
     t.string "item_name"
-    t.integer "party_id"
+    t.integer "user_id"
     t.boolean "served"
     t.integer "price"
-    t.integer "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "parties", force: :cascade do |t|
-    t.string "name"
     t.integer "table_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,6 +60,13 @@ ActiveRecord::Schema.define(version: 2019_06_06_143944) do
   end
 
   create_table "tables", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
