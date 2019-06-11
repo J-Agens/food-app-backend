@@ -12,9 +12,10 @@ class ApplicationController < ActionController::API
   end
 
   def decoded_token
-    begin
-      JWT.decode(token, ENV['SECRET_KEY'])
 
+    begin
+      # JWT.decode(token, ENV['SECRET_KEY'])
+      JWT.decode(auth_headers, ENV['SECRET_KEY'])
       # [{"user_id"=>11}, {"alg"=>"HS256"}]
     rescue
       nil
@@ -37,6 +38,7 @@ class ApplicationController < ActionController::API
   end
 
   def curr_user
+
     begin
       # [{"user_id"=>11}, {"alg"=>"HS256"}][0]['user_id']
       user_id = decoded_token[0]["user_id"]
