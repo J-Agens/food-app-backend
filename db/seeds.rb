@@ -53,9 +53,10 @@ recipe_ings = [
   Table.create
 end
 
-User.create(username: Faker::Name.first_name) # need to add passwords later
-User.create(username: Faker::Name.first_name)
-User.create(username: Faker::Name.first_name)
+User.create(username: "jagens", password: "123")
+User.create(username: Faker::Name.first_name, password: "123") # need to add passwords later
+User.create(username: Faker::Name.first_name, password: "123")
+User.create(username: Faker::Name.first_name, password: "123")
 
 
 Pot.create

@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   resources :tables, only:[:index, :show]
-  resources :users, only:[:index, :create, :update, :destroy]
+  resources :users, only:[:index, :update, :destroy]
   resources :orders, only:[:create, :update, :destroy]
   resources :cook_sessions, only:[:index, :show, :create, :update, :destroy]
   resources :recipes, only:[:index]
   resources :ingredients, only:[:index]
   resources :pots, only:[:index]
   mount ActionCable.server => '/cable'
+  post '/signup', to: 'users#create'
+  post '/login', to: 'auth#login'
+  post '/auto_login', to: 'auth#auto_login'
+
 
   # get 'ingredients/index'
   # get 'recipe_ingredients/index'
