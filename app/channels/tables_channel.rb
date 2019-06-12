@@ -1,6 +1,7 @@
 class TablesChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
+    # byebug
     stream_from "tables_channel"
   end
 
