@@ -61,6 +61,9 @@ User.create(username: Faker::Name.first_name, password: "123")
 
 
 Pot.create
+Pot.create
+Pot.create
+
 
 recipe_ings.each do |item|
   new_rec = Recipe.create(name: item[:name], cook_time: rand(10..30))

@@ -10,13 +10,20 @@ class CookSessionsController < ApplicationController
   end
 
   def create
-    @cook_session = CookSession.new(order_id: params[:order][:id], pot_id: params[:cook_session][:pot_id], completed: false)
-    rec = Recipe.find_by(name: params[:order][:item_name])
-    @cook_session.recipe_id = rec.id
-    if @cook_session.save
-      render json: @cook_session
+    empty_pots = Pot.all.select do |pot|
+      pot.cook_session == nil
+    end
+    if empty_pots.count > 0
+      @cook_session = CookSession.new(order_id: params[:order][:id], pot_id: empty_pots[0].id, completed: false)
+      rec = Recipe.find_by(name: params[:order][:item_name])
+      @cook_session.recipe_id = rec.id
+      if @cook_session.save
+        render json: @cook_session
+      else
+        render json: {error: "Failed to create cook session."}
+      end
     else
-      render json: {error: "Failed to create cook session."}
+      render json: {error: "No more empty pots."}
     end
   end
 
