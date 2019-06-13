@@ -1,5 +1,5 @@
 class TableSerializer < ActiveModel::Serializer
-  attributes :id, :users_at_table, :table_total
+  attributes :id, :users_at_table, :active_users_at_table, :table_total
   has_many :orders
   has_many :users, through: :orders
 end
