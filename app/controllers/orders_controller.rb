@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def create
     @order = Order.new(item_name: params[:item_name], served: false, price: params[:price], user_id: params[:user_id], table_id: params[:table_id])
+    byebug
     @order.save
     ActionCable.server.broadcast("order_board_channel", OrderSerializer.new(@order))
     # render json: @order, status: 201
