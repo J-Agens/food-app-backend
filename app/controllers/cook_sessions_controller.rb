@@ -31,7 +31,6 @@ class CookSessionsController < ApplicationController
 
   def destroy
     @cook_session = CookSession.find_by(id: params[:id])
-    byebug
     @cook_session.destroy
     # render json: @cook_session
   end

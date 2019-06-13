@@ -7,6 +7,6 @@ class TablesChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
-    raise "huh?"
+    # raise "huh?"
   end
 end
