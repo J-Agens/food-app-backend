@@ -21,4 +21,9 @@ class OrdersController < ApplicationController
     @order.destroy
     render json: @order
   end
+
+  def erase_orders
+    Order.destroy_all
+    render json: {message: "It is done."}
+  end
 end
