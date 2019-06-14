@@ -18,4 +18,17 @@ class User < ApplicationRecord
       order.table
     end.uniq
   end
+
+  def is_done
+    not_done = self.orders.select do |order|
+      order.served === false
+    end
+
+    if not_done.length === 0
+      true
+    else
+      false
+    end
+  end
+
 end
