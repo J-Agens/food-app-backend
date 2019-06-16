@@ -1,5 +1,5 @@
 class AuthController < ApplicationController
-  # skip_before_action :authorized, only: [:login]
+  # skip_before_action :authorized, only: [:login, :auto_login]
 
   def login
     user = User.find_by(username: params[:user][:username]) #may not need [:user] part

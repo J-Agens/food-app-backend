@@ -49,15 +49,21 @@ recipe_ings = [
   }
 ]
 
-3.times do
+6.times do
   Table.create
 end
 
 User.create(username: "jagens", password: "123")
 User.create(username: "John", password: "123")
-User.create(username: Faker::Name.first_name, password: "123") # need to add passwords later
 User.create(username: Faker::Name.first_name, password: "123")
 User.create(username: Faker::Name.first_name, password: "123")
+User.create(username: Faker::Name.first_name, password: "123")
+User.create(username: Faker::Name.first_name, password: "123")
+User.create(username: Faker::Name.first_name, password: "123")
+User.create(username: Faker::Name.first_name, password: "123")
+User.create(username: Faker::Name.first_name, password: "123")
+User.create(username: Faker::Name.first_name, password: "123")
+
 
 
 Pot.create
@@ -75,7 +81,11 @@ recipe_ings.each do |item|
 
 end
 
-# 10.times do
-#   table = Table.all.sample
-#   Order.create(item_name: recipes.sample, served: false, price: rand(5..20), user_id: rand(User.first.id..User.last.id), table_id: table.id)
-# end
+10.times do
+  table = Table.all.sample
+  boos = [true, false]
+  order = Order.new(item_name: recipes.sample, served: boos.sample, price: 1, user_id: rand(User.first.id..User.last.id), table_id: table.id)
+  if order.valid?
+    order.save
+  end
+end

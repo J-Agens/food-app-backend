@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
       ActionCable.server.broadcast("order_board_channel", OrderSerializer.new(@order))
       # render json: @order, status: 201
     else
-      render json: {error: "This is not your table."}
+      render json: {body: "This is not your table."}, status: 201
     end
   end
 
@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    render json: @order
+    
   end
 
   def erase_orders
