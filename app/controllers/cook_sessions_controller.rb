@@ -14,8 +14,12 @@ class CookSessionsController < ApplicationController
       pot.cook_session == nil
     end
     if empty_pots.count > 0
-      @cook_session = CookSession.new(order_id: params[:order][:id], pot_id: empty_pots[0].id, completed: false)
+      @cook_session = CookSession.new(order_id: params[:order][:id], pot_id: empty_pots[0].id, completed: false, chef_id: params[:chef_id])
       rec = Recipe.find_by(name: params[:order][:item_name])
+      chef = User.find_by(id: params[:chef_id])
+      order = Order.find_by(id: params[:order][:id])
+      payment = order.price
+      chef.update(wallet: chef.wallet + payment)
       @cook_session.recipe_id = rec.id
       if @cook_session.save
         render json: @cook_session
