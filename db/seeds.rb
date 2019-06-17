@@ -49,20 +49,20 @@ recipe_ings = [
   }
 ]
 
-6.times do
+9.times do
   Table.create
 end
 
-User.create(username: "jagens", password: "123")
-User.create(username: "John", password: "123")
-User.create(username: Faker::Name.first_name, password: "123")
-User.create(username: Faker::Name.first_name, password: "123")
-User.create(username: Faker::Name.first_name, password: "123")
-User.create(username: Faker::Name.first_name, password: "123")
-User.create(username: Faker::Name.first_name, password: "123")
-User.create(username: Faker::Name.first_name, password: "123")
-User.create(username: Faker::Name.first_name, password: "123")
-User.create(username: Faker::Name.first_name, password: "123")
+User.create(username: "jagens", password: "123", wallet: 100)
+User.create(username: "John", password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
 
 
 

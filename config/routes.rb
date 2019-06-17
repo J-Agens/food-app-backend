@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post '/login', to: 'auth#login'
   get '/auto_login', to: 'auth#auto_login'
   get '/erase_orders', to: 'orders#erase_orders'
+  post '/pay_bill', to: 'users#pay_bill'
+  post '/cancel', to: 'orders#cancel'
 
   # get 'ingredients/index'
   # get 'recipe_ingredients/index'

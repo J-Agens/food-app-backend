@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def create
     @order = Order.new(item_name: params[:item_name], served: false, price: params[:price], user_id: params[:user_id], table_id: params[:table_id])
-
+    
     if @order.save
       ActionCable.server.broadcast("order_board_channel", OrderSerializer.new(@order))
       # render json: @order, status: 201
@@ -18,8 +18,18 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
+    info_hash = {total: @order.price, order_ids: [@order.id], user_id: @order.user_id}
     @order.destroy
-    
+    # render json: @order
+    ActionCable.server.broadcast("pay_channel", info_hash)
+  end
+
+  def cancel
+    @order = Order.find(params[:id])
+    info_hash = {total: @order.price, order_ids: [@order.id], user_id: @order.user_id}
+    @order.destroy
+    # render json: @order
+    ActionCable.server.broadcast("pay_channel", info_hash)
   end
 
   def erase_orders
