@@ -32,6 +32,11 @@ class UsersController < ApplicationController
       order.destroy
     end
     total = prices.sum
+
+    # NEW ##
+    @user.update(wallet: (@user.wallet - total))
+    ########
+
     info_hash = {total: total, order_ids: order_ids, user_id: @user.id}
     ActionCable.server.broadcast("pay_channel", info_hash)
     render json: {total: total, order_ids: order_ids }

@@ -5,7 +5,8 @@ class Order < ApplicationRecord
   validate :same_table
   validate :room_at_table
   validate :order_max
-
+  validate :enough_money
+  
   def customer
     self.user.username
   end
@@ -27,8 +28,7 @@ class Order < ApplicationRecord
     end
   end
 
-  # THIS VALIDATION WAS PREVENTING ORDERS FROM BEING UPDATED.
-
+  # THIS VALIDATION WAS PREVENTING ORDERS FROM BEING UPDATED. --> ok for now
   def order_max
     table = Table.find_by(id: self.table_id)
 
@@ -42,6 +42,14 @@ class Order < ApplicationRecord
 
     if placed_orders.length >= 10 || served_orders.length >= 10
       errors.add(:too_many_orders, "Table order limit reached.")
+    end
+  end
+
+  # NOT CURRENTLY IMPLEMENTED
+  def enough_money
+    user = User.find_by(id: self.user_id)
+    if user.wallet < self.price
+      errors.add(:not_enough_money, "You don't have enough money in your wallet.")
     end
   end
 end
