@@ -6,7 +6,7 @@ class Order < ApplicationRecord
   validate :room_at_table
   validate :order_max
   validate :enough_money
-  
+
   def customer
     self.user.username
   end
