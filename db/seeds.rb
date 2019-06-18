@@ -63,6 +63,14 @@ User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
 User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
 User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
 User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
+User.create(username: Faker::Name.first_name, password: "123", wallet: 100)
 
 
 

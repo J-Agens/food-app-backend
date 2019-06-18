@@ -45,7 +45,6 @@ class Order < ApplicationRecord
     end
   end
 
-  # NOT CURRENTLY IMPLEMENTED
   def enough_money
     user = User.find_by(id: self.user_id)
     if user.wallet < self.price
