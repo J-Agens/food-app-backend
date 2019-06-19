@@ -24,7 +24,7 @@ class CookSessionsController < ApplicationController
       if @cook_session.save
         render json: @cook_session
       else
-        render json: {error: "Failed to create cook session."}
+        render json: {error: "You already selected this order."}
       end
     else
       render json: {error: "No more empty pots."}
