@@ -89,7 +89,7 @@ recipe_ings.each do |item|
 
 end
 
-10.times do
+150.times do
   table = Table.all.sample
   boos = [true, false]
   order = Order.new(item_name: recipes.sample, served: boos.sample, price: 1, user_id: rand(User.first.id..User.last.id), table_id: table.id)
