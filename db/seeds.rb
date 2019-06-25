@@ -92,7 +92,7 @@ end
 150.times do
   table = Table.all.sample
   boos = [true, false]
-  order = Order.new(item_name: recipes.sample, served: boos.sample, price: 1, user_id: rand(User.first.id..User.last.id), table_id: table.id)
+  order = Order.new(item_name: recipes.sample, served: false, price: 4, user_id: rand(User.first.id..User.last.id), table_id: rand(2..9))
   if order.valid?
     order.save
   end
