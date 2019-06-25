@@ -154,7 +154,7 @@ DEPENDENCIES
   active_model_serializers
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
-  bundler
+  bundler (~> 2.0.1)
   byebug
   dotenv-rails
   faker
