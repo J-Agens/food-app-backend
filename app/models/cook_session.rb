@@ -18,13 +18,4 @@ class CookSession < ApplicationRecord
     end
   end
 
-  # def unique_order
-  #   order_ids = CookSession.all.map do |cs|
-  #     cs.order_id
-  #   end
-  #
-  #   if order_ids.include(self.order_id)
-  #     errors.add(:order_being_cooked, "Only one cook session per order.")
-  #   end
-  # end
 end

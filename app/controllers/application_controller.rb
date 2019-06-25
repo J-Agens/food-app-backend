@@ -30,7 +30,6 @@ class ApplicationController < ActionController::API
   def authorized
     # this is useful to protect any given route
 
-    # oooooops on that colon
     # render json: {errors: 'unauthorized'} unless :logged_in
     # incorrect version
 

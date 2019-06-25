@@ -8,13 +8,10 @@ class Table < ApplicationRecord
     end.uniq
   end
 
-  # PROBABLY NEEDS TO BE FIXED
   def active_users_at_table
     self.users.select do |user|
       user.location_of_outstanding_orders.length > 0 && user.location_of_outstanding_orders[0].id == self.id
     end.map do |user|
-      # u = {username: user.username, is_done: user.is_done, personal_total: user.personal_total}
-      # u
       user.username
     end.uniq
   end

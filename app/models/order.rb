@@ -28,7 +28,6 @@ class Order < ApplicationRecord
     end
   end
 
-  # THIS VALIDATION WAS PREVENTING ORDERS FROM BEING UPDATED. --> ok for now
   def order_max
     table = Table.find_by(id: self.table_id)
 
