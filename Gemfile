@@ -47,4 +47,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'active_model_serializers'
 gem 'faker'
 
-gem 'dotenv-rails', groups: [:development, :test]
+# ADDED PRODUCTION ON TO SEE IF I COULD GET IT TO WORK ON HEROKU
+gem 'dotenv-rails', groups: [:development, :test, :production]
