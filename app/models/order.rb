@@ -39,7 +39,7 @@ class Order < ApplicationRecord
     served_orders = table.orders.select do |order|
       order.served
     end
-
+    # Cannot have more than 10 outstanding orders at a table
     if placed_orders.length >= 10 || served_orders.length >= 10
       errors.add(:too_many_orders, "Table order limit reached.")
     end
